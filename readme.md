@@ -20,7 +20,7 @@ Here are some screenshots of the application:
 
 
 - **Admin & Login / Register Page**  
-<img src="Assets\image.png" alt="dmin & Login / Register Page" height="300" />
+<img src="Assets\image.png" alt="Admin & Login / Register Page" height="300" />
 
 ![Login Page](./Assets/login.png)
 
