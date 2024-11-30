@@ -20,8 +20,8 @@ Here are some screenshots of the application:
 
 
 - **Admin & Login / Register Page**  
-![Login Page](./Assets/image.png alt="Home Page" width="600"/)
-![Login Page](./Assets/login.png)
+![Login Page](./Assets/image.png alt="Home Page" width="400"/)
+![Login Page](./Assets/login.png alt="Home Page" width="400"/)
 
 - **Dashboard Page**  
 ![Dashboard Page](https://link-to-your-screenshot-image.com/dashboard_page.png)
