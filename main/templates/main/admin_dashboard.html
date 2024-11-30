@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <!-- Google Fonts for attractive typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Global Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #0057b8;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #ffffff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            color: #333;
+        }
+
+        li strong {
+            font-weight: 600;
+            color: #0057b8;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+            margin-right: 10px;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus {
+            border-color: #0057b8;
+            outline: none;
+            background-color: #fff;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #0057b8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #004099;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            li {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            select {
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+                padding: 12px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <ul>
+            {% for request in requests %}
+            <li>
+                <strong>{{ request.user.username }}</strong>: {{ request.description }}
+                - Status: {{ request.status }}
+                <form method="POST" action="{% url 'update_request_status' request.pk %}">
+                    {% csrf_token %}
+                    <select name="status" required>
+                        <option value="Pending" {% if request.status == "Pending" %}selected{% endif %}>Pending</option>
+                        <option value="In Progress" {% if request.status == "In Progress" %}selected{% endif %}>In Progress</option>
+                        <option value="Completed" {% if request.status == "Completed" %}selected{% endif %}>Completed</option>
+                    </select>
+                    <button type="submit">Update</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        // JavaScript for improving select box and button interaction
+        const selects = document.querySelectorAll('select');
+        selects.forEach(select => {
+            select.addEventListener('focus', () => {
+                select.style.borderColor = '#0057b8';
+            });
+
+            select.addEventListener('blur', () => {
+                select.style.borderColor = '#ccc';
+            });
+        });
+
+        // Smooth hover effect for buttons
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', () => {
+                button.style.backgroundColor = '#004099';
+            });
+            button.addEventListener('mouseout', () => {
+                button.style.backgroundColor = '#0057b8';
+            });
+        });
+    </script>
+
+</body>
+</html>

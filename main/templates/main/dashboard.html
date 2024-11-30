@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard - Customer Care Portal</title>
+
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Apply the Roboto font family globally */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f0f7ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .dashboard-container {
+            background: #ffffff;
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #004f7c;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .request-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .request-item {
+            background: #f9fafb;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .request-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .request-item strong {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .request-details {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .status {
+            font-weight: bold;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .status.Pending {
+            background-color: #ff9800;
+            color: white;
+        }
+        
+        .status.InProgress {
+            background-color: #4caf50;
+            color: rgb(255, 255, 255);
+        }
+
+        .status.Completed {
+            background-color: #2196f3;
+            color: white;
+        }
+
+        a {
+            color: #004f7c;
+            text-decoration: none;
+            font-size: 16px;
+            border: 2px solid #004f7c;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #004f7c;
+            color: white;
+        }
+
+        .empty-message {
+            font-size: 18px;
+            color: #757575;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .create-btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .create-btn-container a {
+            font-size: 18px;
+            background-color: #004f7c;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        .create-btn-container a:hover {
+            background-color: #005f8a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <h1>My Dashboard</h1>
+
+        <!-- Display all the service requests for the user -->
+        <ul class="request-list">
+            {% for request in requests %}
+                <li class="request-item">
+                    <strong>{{ request.new_request_name }}</strong>
+                    <div class="request-details">
+                        <p>Status: <span class="status {{ request.status }}">{{ request.status }}</span></p>
+                        <p>Description: {{ request.description }}</p>
+                        <p>Created on: {{ request.created_at }}</p>
+                        {% if request.attachment %}
+                            <p><a href="{{ request.attachment.url }}" target="_blank">Download Attachment</a></p>
+                        {% else %}
+                            <p>No attachment</p>
+                        {% endif %}
+                    </div>
+                </li>
+            {% empty %}
+                <li class="empty-message">No service requests found.</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Button to create new service request -->
+        <div class="create-btn-container">
+            <a href="{% url 'create_request' %}">Create Service Request</a>
+        </div>
+    </div>
+
+    <script>
+        // Optional JS for smooth scrolling when clicking on the "Create Service Request" button
+        const createRequestBtn = document.querySelector('.create-btn-container a');
+        createRequestBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            window.location.href = createRequestBtn.getAttribute('href');
+        });
+    </script>
+
+</body>
+</html>

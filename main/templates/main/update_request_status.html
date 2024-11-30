@@ -1,0 +1,11 @@
+<h1>Update Request Status</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="status">Status:</label>
+    <select id="status" name="status" required>
+        <option value="Pending" {% if service_request.status == "Pending" %}selected{% endif %}>Pending</option>
+        <option value="In Progress" {% if service_request.status == "In Progress" %}selected{% endif %}>In Progress</option>
+        <option value="Completed" {% if service_request.status == "Completed" %}selected{% endif %}>Completed</option>
+    </select>
+    <button type="submit">Update</button>
+</form>
