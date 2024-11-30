@@ -22,18 +22,18 @@ Here are some screenshots of the application:
 - **Admin & Login / Register Page**  
 <img src="Assets\image.png" alt="Admin & Login / Register Page" height="300" />
 
-![Login Page](./Assets/login.png)
+<img src="Assets\login.png" alt="Admin & Login / Register Page" height="300" />
 
 - **Dashboard Page**  
-![Dashboard Page](https://link-to-your-screenshot-image.com/dashboard_page.png)
+<img src="Assets\Dashboard.png" alt="Dashboard Page" height="300" />
 
 - **Create Service Request Page**  
-![Create Request Page](https://link-to-your-screenshot-image.com/create_request_page.png)
+<img src="Assets\Service request.png" alt="Create Service Request Page" height="300" />
 
 - **Admin Dashboard**  
-![Admin Dashboard](https://link-to-your-screenshot-image.com/admin_dashboard.png)
+<img src="Assets\adminDashboard.png" alt="Admin Dashboard" height="300" />
 
-## Technologies Used
+### Technologies Used
 
 - **Django**: Backend framework for handling business logic and database operations.
 - **SQLite**: Database used for development (can be replaced with PostgreSQL or MySQL in production).
