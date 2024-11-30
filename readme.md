@@ -16,12 +16,13 @@ A Gas Utility Service Management System where users can submit service requests,
 Here are some screenshots of the application:
 
 - **Home Page**  
-![Home Page](./Assets/home.png alt="Home Page" width="400" /)
+![Home Page](./Assets/home.png)
 
 
 - **Admin & Login / Register Page**  
-![Admin & Login / Register Page](./Assets/image.png alt="Admin & Login / Register Page" width="400"   /)
-![Admin & Login / Register Page](./Assets/login.png alt="Admin & Login / Register Page" width="400"  /)
+<img src="Assets\image.png" alt="Home Page" height="300" />
+
+![Login Page](./Assets/login.png)
 
 - **Dashboard Page**  
 ![Dashboard Page](https://link-to-your-screenshot-image.com/dashboard_page.png)
