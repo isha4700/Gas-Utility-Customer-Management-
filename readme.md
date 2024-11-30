@@ -16,7 +16,7 @@ A Gas Utility Service Management System where users can submit service requests,
 Here are some screenshots of the application:
 
 - **Home Page**  
-![Home Page](C:\Users\Isha\Desktop\gas_utility_app\Assets\Screenshot 2024-11-30 134336.png)
+![Home Page](Assets/Screenshot 2024-11-30 134336.png)
 
 - **Login / Register Page**  
 ![Login Page](https://link-to-your-screenshot-image.com/login_page.png)
