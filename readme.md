@@ -20,7 +20,7 @@ Here are some screenshots of the application:
 
 
 - **Admin & Login / Register Page**  
-![Login Page](./Assets/image.png)
+![Login Page](./Assets/image.png alt="Home Page" width="600"/)
 ![Login Page](./Assets/login.png)
 
 - **Dashboard Page**  
